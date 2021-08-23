@@ -22,14 +22,18 @@ spring:
   jpa:
     open-in-view: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: create #table create/update/none
       naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-      use-new-id-generator-mappings: false
-    show-sql: true
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl #Entity 생성시 변수이름 그대로 table 컬럼생성
+      use-new-id-generator-mappings: false  #JPA 넘버링 전략 설정 true : Ok
+    show-sql: true #console print
     properties:
-      hibernate.format_sql: true
+      hibernate.format_sql: true #console printed sql 정렬
 
   jackson:
     serialization:
       fail-on-empty-beans: false
+
+  devtools:
+    restart:
+      enabled: true
