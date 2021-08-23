@@ -48,4 +48,7 @@ public class Board {
 * @OneToMany(fetch = FetchType.LAZY) : 연관관게에 있는 Entity를 가져오지 않고, getter로 접근할 때 가져온다
 * @ManyToOne(fetch = FetchType.EAGER) : 연관 관계에 있는 Entity들 모두 가져온다
 * 즉시 로딩이 필요하지 않은 것들은 LAZY 전략으로 바꿔줌
+* ****************************************************
+* ManyToMany는 사용하지 않는다.
+* 서로의 PK로만 중간 테이블을 생성해주는데, 다른 필드가 필요할 수 있으므로, 중간 테이블을 직접 제작후 연관관계를 설정한다.
 * */
