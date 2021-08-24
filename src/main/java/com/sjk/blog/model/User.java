@@ -24,7 +24,7 @@ public class User {
     private int id; //auto_increment (Auto)
 
     @Column(nullable = false, length = 20)
-    private String username; //아이디
+    private String userId; //아이디
 
     @Column(nullable = false, length = 100)
     private String password; //패스워드
