@@ -8,10 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -22,6 +20,34 @@ public class DummyController {
 
     @Autowired //스프링이 관리하는 객체중 UserRepository 객체가 있으면 클래스가 적재될때 같이 메모리에 적재해준다. -> 의존성 주입 (DI)
     private UserRepository userRepository;
+
+    //회원 삭제 테스트
+
+
+
+    //save : id 전달시 insert, id 전달 안할 시 해당 id에 대한 데이터가 있으면  update, 없으면 insert
+    //회원 수정 테스트
+    //수정 목록 : password, birth, email, tel
+    @Transactional //더티체킹을 사용하여 update
+    @PutMapping("/dummy/user/{id}")
+    public User updateUser(@PathVariable int id, @RequestBody User requestUser){  //RequestBody : JSON 데이터 받음, json => Java obj(Message Converter Jackson 라이브러리가 변환)
+        System.out.println("password : "+ requestUser.getPassword());
+        System.out.println("name : "+ requestUser.getName());
+        System.out.println("birth : "+ requestUser.getBirth());
+        System.out.println("email : "+ requestUser.getEmail());
+        System.out.println("tel : "+ requestUser.getTel());
+
+        User user = userRepository.findById(id).orElseThrow(()->{
+            return new IllegalArgumentException("수정에 실패하였습니다.");
+        });
+        user.setPassword(requestUser.getPassword());
+        user.setBirth(requestUser.getBirth());
+        user.setEmail(requestUser.getEmail());
+        user.setTel(requestUser.getTel());
+
+//        userRepository.save(user);
+        return user;
+    }
 
     //전체 유저 정보 확인 테스트
     @GetMapping("/dummy/users")
