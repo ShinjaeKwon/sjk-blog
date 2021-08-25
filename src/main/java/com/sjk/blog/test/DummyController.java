@@ -1,4 +1,4 @@
-package com.sjk.blog.controller;
+package com.sjk.blog.test;
 
 import com.sjk.blog.model.RoleType;
 import com.sjk.blog.model.User;
