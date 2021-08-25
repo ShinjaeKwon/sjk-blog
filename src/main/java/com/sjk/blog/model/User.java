@@ -38,7 +38,7 @@ public class User {
     private String name; //이름
 
     @Column(nullable = false)
-    private int birth; //생년월일 (YYYYMMDD)
+    private Timestamp birth; //생년월일 (YYYYMMDD)
 
     @Column(nullable = false, length = 50, unique = true)
     private String email; //이메일
@@ -49,3 +49,4 @@ public class User {
     @CreationTimestamp //시간 자동 입력 (Auto)
     private Timestamp createDate;
 }
+
