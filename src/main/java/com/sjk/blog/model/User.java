@@ -23,7 +23,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //넘버링 전략 IDENTITY : DB의 넘버링 전략을 따라감
     private int id; //auto_increment (Auto)
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 20, unique = true)
     private String userId; //아이디
 
     @Column(nullable = false, length = 100)
@@ -40,10 +40,10 @@ public class User {
     @Column(nullable = false)
     private int birth; //생년월일 (YYYYMMDD)
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 50, unique = true)
     private String email; //이메일
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 20, unique = true )
     private String tel; //전화번호 (010XXXXXXXX)
 
     @CreationTimestamp //시간 자동 입력 (Auto)
