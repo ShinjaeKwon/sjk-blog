@@ -1,3 +1,4 @@
+/*
 package com.sjk.blog.test;
 
 import com.sjk.blog.model.RoleType;
@@ -74,12 +75,14 @@ public class DummyController {
     }
 
     //detail (람다식 사용)
+*/
 /*    public User detail(@PathVariable int id){ //@PathVariable로 파라미터를 받음 // 1. id값이 존재하지 않을 때 빈객체 return
         User user = userRepository.findById(id).orElseThrow(()->{
             return new IllegalArgumentException("해당 사용자는 없습니다. id : "+ id);
         });
         return user;
-    }*/
+    }*//*
+
 
     //유저 정보 확인 테스트 (1명)
     //{id} 주소로 파라미터를 전달 받을 수 있다.
@@ -111,3 +114,4 @@ public class DummyController {
         return "회원가입이 완료되었습니다.";
     }
 }
+*/
