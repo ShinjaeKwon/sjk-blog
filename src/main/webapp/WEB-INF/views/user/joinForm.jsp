@@ -7,8 +7,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="../layout/header.jsp" %>
+<%--form 태그 method 방법이 아닌 JS로 전달하는 방식--%>
 <div class="container">
-    <form action="/action_page.php">
+    <form>
         <div class="form-group">
             <label for="userId">아이디 </label>
             <input type="text" class="form-control" placeholder="아이디를 입력해주세요." id="userId">
@@ -20,28 +21,19 @@
         </div>
 
         <div class="form-group">
-            <label for="name">이름 </label>
-            <input type="text" class="form-control" placeholder="이름을 입력해주세요." id="name">
+            <label for="nickname">닉네임 </label>
+            <input type="text" class="form-control" placeholder="닉네임을 입력해주세요." id="nickname">
         </div>
-
-        <div class="form-group">
-            <label for="birth">생년월일 </label>
-            <input type="date" class="form-control" id="birth">
-        </div>
-
-        <div class="form-group">
-            <label for="tel">전화번호 </label>
-            <input type="tel" class="form-control" id="tel">
-        </div>
-
 
         <div class="form-group">
             <label for="email">이메일</label>
             <input required type="email" class="form-control" placeholder="Enter email" id="email">
         </div>
-
-        <button type="submit" class="btn btn-primary">회원가입완료</button>
     </form>
+    <button id="btn-save" class="btn btn-primary">회원가입완료</button>
+    <br><br>
+
 </div>
+<script src="/sjk/js/user.js"></script>
 
 <%@ include file="../layout/footer.jsp" %>

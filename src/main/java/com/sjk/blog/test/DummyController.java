@@ -45,18 +45,14 @@ public class DummyController {
     @PutMapping("/dummy/user/{id}")
     public User updateUser(@PathVariable int id, @RequestBody User requestUser){  //RequestBody : JSON 데이터 받음, json => Java obj(Message Converter Jackson 라이브러리가 변환)
         System.out.println("password : "+ requestUser.getPassword());
-        System.out.println("name : "+ requestUser.getName());
-        System.out.println("birth : "+ requestUser.getBirth());
+        System.out.println("name : "+ requestUser.getNickname());
         System.out.println("email : "+ requestUser.getEmail());
-        System.out.println("tel : "+ requestUser.getTel());
 
         User user = userRepository.findById(id).orElseThrow(()->{
             return new IllegalArgumentException("수정에 실패하였습니다.");
         });
         user.setPassword(requestUser.getPassword());
-        user.setBirth(requestUser.getBirth());
         user.setEmail(requestUser.getEmail());
-        user.setTel(requestUser.getTel());
 
 //        userRepository.save(user);
         return user;
@@ -107,10 +103,8 @@ public class DummyController {
     public String join(User user){ //매개변수만 적으면 key = value 데이터로 오는데, 알아서 함수에 파싱해준다.
         System.out.println("userId : "+ user.getUserId());
         System.out.println("password : "+ user.getPassword());
-        System.out.println("name : "+ user.getName());
-        System.out.println("birth : "+ user.getBirth());
+        System.out.println("name : "+ user.getNickname());
         System.out.println("email : "+ user.getEmail());
-        System.out.println("tel : "+ user.getTel());
 
         user.setRole(RoleType.USER);
         userRepository.save(user);

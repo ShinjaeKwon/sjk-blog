@@ -34,17 +34,11 @@ public class User {
     @Enumerated(EnumType.STRING) //ENUM 타입이 String 타입이라고 알려줌
     private RoleType role; //권한 (USER, ADMIN)
 
-    @Column(nullable = false, length = 20)
-    private String name; //이름
-
-    @Column(nullable = false)
-    private Timestamp birth; //생년월일 (YYYYMMDD)
+    @Column(nullable = false, length = 20, unique = true)
+    private String nickname; //닉네임
 
     @Column(nullable = false, length = 50, unique = true)
     private String email; //이메일
-
-    @Column(nullable = false, length = 20, unique = true )
-    private String tel; //전화번호 (010XXXXXXXX)
 
     @CreationTimestamp //시간 자동 입력 (Auto)
     private Timestamp createDate;
