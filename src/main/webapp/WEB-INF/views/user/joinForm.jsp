@@ -16,8 +16,8 @@
         </div>
 
         <div class="form-group">
-            <label for="pwd">패스워드 </label>
-            <input type="password" class="form-control" placeholder="패스워드를 입력해주세요." id="pwd">
+            <label for="password">패스워드 </label>
+            <input type="password" class="form-control" placeholder="패스워드를 입력해주세요." id="password">
         </div>
 
         <div class="form-group">
