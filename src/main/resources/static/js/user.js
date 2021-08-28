@@ -29,7 +29,7 @@ let index ={
         }).done(function (resp){ //정상일 시 실행, resp = UserApiController에서 결과값
             alert("회원가입이 완료되었습니다.");
             console.log(resp);
-            // location.href="/sjk";
+            location.href="/sjk";
         }).fail(function (){ //실패할 시 실행
             alert(JSON.stringify(error));
         });
