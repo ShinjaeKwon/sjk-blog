@@ -24,6 +24,6 @@ public class UserApiController {
         user.setRole(RoleType.USER);
         int result = userService.회원가입(user);
 
-        return new ResponseDto<Integer>(HttpStatus.OK, result); //자바 오브젝트를 JSON으로 변환해서 리턴(Jackson)
+        return new ResponseDto<Integer>(HttpStatus.OK.value(), result); //자바 오브젝트를 JSON으로 변환해서 리턴(Jackson)
     }
 }
