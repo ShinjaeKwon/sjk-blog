@@ -25,6 +25,12 @@ public class UserService {
         return -1;
     }
 
+    @Transactional(readOnly = true) //SELECT 할 때 트랜잭션 시작, 서비스가 종료될 때 트랜잭션이 종료 (정합성 유지)
+    public User 로그인(User user){
+
+        return  userRepository.findByUserIdAndPassword(user.getUserId(), user.getPassword());
+    }
+
 }
 
 //Service를 쓰는 이유
