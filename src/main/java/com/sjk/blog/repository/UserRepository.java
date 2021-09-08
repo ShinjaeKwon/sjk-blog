@@ -10,12 +10,14 @@ import org.springframework.stereotype.Repository;
 @Repository //생략 가능
 public interface UserRepository extends JpaRepository<User, Integer> { //<무슨 테이블이 관리, PK속성>
 
-    // JPA Naming 쿼리
-    // SELECT * FROM user WHERE username= ?(username) AND password = ?(password);
-    User findByUserIdAndPassword(String userId, String password);
+
+
+}
+
+// JPA Naming 쿼리
+// SELECT * FROM user WHERE username= ?(username) AND password = ?(password);
+//    User findByUserIdAndPassword(String userId, String password);
 
     /*//repository.login이 실행되면 쿼리문이 실행된다.
     @Query(value="SELECT * FROM user WHERE username= ?1 AND password = ?2", nativeQuery = true)
     User login(String username, String password);*/
-
-}

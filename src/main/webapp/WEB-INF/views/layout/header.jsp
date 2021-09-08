@@ -28,10 +28,10 @@
             <c:when test="principal"> <%--시큐리티 미사용시 세션받아오는 방법 : ${empty sessionScope.principal} --%>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/loginForm">로그인</a>
+                        <a class="nav-link" href="/auth/loginForm">로그인</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/joinForm">회원가입</a>
+                        <a class="nav-link" href="/auth/joinForm">회원가입</a>
                     </li>
                 </ul>
             </c:when> <%-- if-else구문 when-otherwise --%>
