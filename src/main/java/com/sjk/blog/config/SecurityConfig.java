@@ -1,10 +1,12 @@
 package com.sjk.blog.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 //빈등록 : 스프링 컨테이너에서 객체를 관리할 수 있게 하는것
 
@@ -14,10 +16,17 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 //위의 3개의 어노테이션은 세트이다.
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Bean //IoC가 된다. (스프링이 관리한다)
+    public BCryptPasswordEncoder encodePWD(){ //인코딩함수
+        return new BCryptPasswordEncoder();
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/auth/**") //요청에 대하여 허락한다.
+        http
+                .csrf().disable() //csrf 토큰 비활성화(테스트시 걸어두는게 좋음)
+                .authorizeRequests()
+                .antMatchers("/","/auth/**","/js/**","/css/**", "/image/**") //요청에 대하여 허락한다.
                 .permitAll() // /auth/** 로 들어오는 것은 누구나 들어올 수 있다.
                 .anyRequest() //다른 요청들은
                 .authenticated() //인증이 되야한다.

@@ -25,7 +25,7 @@
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <c:choose>
-            <c:when test="principal"> <%--시큐리티 미사용시 세션받아오는 방법 : ${empty sessionScope.principal} --%>
+            <c:when test="${empty principal}"> <%--시큐리티 미사용시 세션받아오는 방법 : ${empty sessionScope.principal} --%>
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="/auth/loginForm">로그인</a>
