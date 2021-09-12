@@ -10,4 +10,6 @@ public class BoardController {
     public String index(){
         return "index";
     }
+
+
 }

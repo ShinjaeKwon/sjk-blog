@@ -12,7 +12,7 @@ let index ={
     save: function () {
         //alert('user의 save 함수 호출됨');
         let data = {
-            userId: $("#userId").val(), //id="userId"의 값을 받아와서 userId
+            username: $("#username").val(), //id="userId"의 값을 받아와서 userId
             password: $("#password").val(),
             nickname: $("#nickname").val(),
             email: $("#email").val()

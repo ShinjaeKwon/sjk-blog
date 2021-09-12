@@ -19,7 +19,7 @@
 <body>
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <a class="navbar-brand" href="/">SJK</a>
+    <a class="navbar-brand" href="/">ShoesSell</a>
     <button class="navbar-toggler" typ="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -46,7 +46,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/logout">로그아웃</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/sell">거래게시판</a>
+                    </li>
                 </ul>
+
             </c:otherwise>
         </c:choose>
 
